@@ -1,3 +1,9 @@
+# revision 20491
+# category Package
+# catalog-ctan /macros/luatex/latex/luainputenc
+# catalog-date 2010-11-19 16:55:42 +0100
+# catalog-license pd
+# catalog-version 0.973
 Name:		texlive-luainputenc
 Version:	0.973
 Release:	1
@@ -54,6 +60,7 @@ same behaviour with LuaTeX as inputenc has under pdfTeX.
 #- source
 %doc %{_texmfdistdir}/source/lualatex/luainputenc/Makefile
 %doc %{_texmfdistdir}/source/lualatex/luainputenc/luainputenc.dtx
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -64,3 +71,5 @@ same behaviour with LuaTeX as inputenc has under pdfTeX.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
