@@ -18,9 +18,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
-Conflicts:	texlive-source <= 20110705-3
 
 %description
 LuaTeX operates by default in UTF-8 input; thus LaTeX documents
@@ -31,20 +28,12 @@ package, therefore, replaces the LaTeX standard inputenc for
 use under LuaTeX. With a current LuaTeX,the package has the
 same behaviour with LuaTeX as inputenc has under pdfTeX.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -61,7 +50,6 @@ same behaviour with LuaTeX as inputenc has under pdfTeX.
 #- source
 %doc %{_texmfdistdir}/source/lualatex/luainputenc/Makefile
 %doc %{_texmfdistdir}/source/lualatex/luainputenc/luainputenc.dtx
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -72,5 +60,3 @@ same behaviour with LuaTeX as inputenc has under pdfTeX.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
