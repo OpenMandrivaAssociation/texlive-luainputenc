@@ -6,7 +6,7 @@
 # catalog-version 0.973
 Name:		texlive-luainputenc
 Version:	0.973
-Release:	2
+Release:	3
 Summary:	Replacing inputenc for use in LuaTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/luatex/latex/luainputenc
