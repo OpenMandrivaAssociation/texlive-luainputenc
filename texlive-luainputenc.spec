@@ -1,19 +1,13 @@
-# revision 20491
-# category Package
-# catalog-ctan /macros/luatex/latex/luainputenc
-# catalog-date 2010-11-19 16:55:42 +0100
-# catalog-license pd
-# catalog-version 0.973
 Name:		texlive-luainputenc
-Version:	0.973
-Release:	12
+Version:	20491
+Release:	1
 Summary:	Replacing inputenc for use in LuaTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/luatex/latex/luainputenc
 License:	PD
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luainputenc.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luainputenc.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luainputenc.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luainputenc.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luainputenc.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luainputenc.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -29,12 +23,12 @@ use under LuaTeX. With a current LuaTeX,the package has the
 same behaviour with LuaTeX as inputenc has under pdfTeX.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -53,24 +47,11 @@ same behaviour with LuaTeX as inputenc has under pdfTeX.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 0.973-2
-+ Revision: 753583
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 0.973-1
-+ Revision: 718922
-- texlive-luainputenc
-- texlive-luainputenc
-- texlive-luainputenc
-- texlive-luainputenc
-
