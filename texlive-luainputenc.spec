@@ -1,6 +1,6 @@
 Name:		texlive-luainputenc
 Version:	20491
-Release:	1
+Release:	2
 Summary:	Replacing inputenc for use in LuaTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/luatex/latex/luainputenc
