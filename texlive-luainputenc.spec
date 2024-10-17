@@ -3,7 +3,7 @@ Version:	20491
 Release:	2
 Summary:	Replacing inputenc for use in LuaTeX
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/luatex/latex/luainputenc
+URL:		https://www.ctan.org/tex-archive/macros/luatex/latex/luainputenc
 License:	PD
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luainputenc.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luainputenc.doc.r%{version}.tar.xz
